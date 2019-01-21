@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.contentprovider">
+
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- authorities就是它是唯一标识内容提供者的，为内容提供者指定一个唯一的标识，这样别的应用才可以唯一获取此provider -->
+        <provider
+            android:name=".PeopleContentProvider"
+            android:authorities="com.example.studentProvider"
+            android:exported="true"></provider>
+
+        <activity android:name=".ItemInfromation"></activity>
+    </application>
+
+</manifest>
